@@ -1,0 +1,66 @@
+<%- include('header') %>
+
+<body>
+  <form method="post" action="/user/createUser">
+    <div class="flex flex-col justify-center items-center gap-4">
+      <h1 class="text-3xl font-bold">Sign Up</h1>
+    <label class="input input-bordered flex items-center gap-2">
+      First Name
+      <input
+        type="text"
+        class="grow"
+        name="firstName"
+        placeholder="First Name"
+      />
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+      Last Name
+      <input type="text" class="grow" name="lastName" placeholder="Last Name" />
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+      Email
+      <input
+        type="text"
+        class="grow"
+        name="emailId"
+        placeholder="Email Address"
+      />
+    </label>
+    <label class="input input-bordered flex items-center gap-2">
+      password
+      <input
+        type="password"
+        class="grow"
+        name="password"
+        placeholder="Password"
+      />
+    </label>
+
+     <textarea class="textarea textarea-bordered" name="skills" placeholder="Skills"></textarea>
+
+    <label class="input input-bordered flex items-center gap-2">
+      Age
+      <input type="number" class="grow" name="age" placeholder="Age" />
+    </label>
+
+      <textarea class="textarea textarea-bordered" name="about" placeholder="About"></textarea>
+
+    <!-- <label class="input input-bordered flex items-center gap-2">
+      Gender
+      <input type="text" class="grow" name="about"  placeholder="Skills" />
+    </label> -->
+    <label class="input input-bordered flex items-center gap-2">
+      Gender
+      <input
+        type="radio"
+        name="gender"
+        class="radio radio-primary"
+        checked="checked"
+        value="male"
+      />Male
+      <input type="radio" name="gender" value="female" class="radio radio-primary" />Female
+    </label>
+    <button type="submit" class="btn btn-outline btn-primary">Submit</button>
+    </div>
+  </form>
+</body>

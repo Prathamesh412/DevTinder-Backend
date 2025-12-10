@@ -1,0 +1,47 @@
+<%- include('header') %>
+
+<div class="flex flex-wrap gap-6 justify-center">
+    <div class="carousel rounded-box w-64"></div>
+  <% users.forEach(user => { %>
+    <div class="card bg-base-100 w-96 shadow-xl">
+      <figure>
+        <img
+          src="<%= user.photoUrl || 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp' %>"
+          alt="<%= user.firstName %> <%= user.lastName %>"
+        />
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title"><%= user.firstName %> <%= user.lastName %></h2>
+        <p>
+          <%= user.about || 'No bio provided.' %>
+        </p>
+        <p>
+          <span class="font-semibold">Gender:</span> <%= user.gender || 'N/A' %>
+          &nbsp; | &nbsp;
+          <span class="font-semibold">Age:</span> <%= user.age || 'N/A' %>
+        </p>
+        <p>
+          <span class="font-semibold">Skills:</span>
+          <% if (user.skills && user.skills.length) { %>
+            <%= user.skills.join(", ") %>
+          <% } else { %>
+            N/A
+          <% } %>
+        </p>
+        <div class="card-actions justify-center">
+            <!-- <button class="btn btn-success">Interested</button>
+            <button class="btn btn-error">Ignore</button> -->
+            <form method="post" action="/request/send/interested/<%= user._id %>"style="display:inline;">
+              <button class="btn btn-success" type="submit">Interested</button>
+            </form>
+            <form method="post" action="/request/send/ignored/<%= user._id %>" style="display:inline;">
+              <button class="btn btn-error" type="submit">Ignore</button>
+            </form>
+        </div>
+      </div>
+    </div>
+        </div>
+    </div>
+  <% }) %>
+</div>
+</div>
