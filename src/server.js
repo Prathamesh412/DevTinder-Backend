@@ -1,6 +1,6 @@
 
 require("dotenv").config();
-
+PORT = process.env.PORT || 7777;
 const express = require("express");
 const connectDB = require("./config/database.config.js");
 const cookieParser = require("cookie-parser");
@@ -98,7 +98,7 @@ app.use("/getUser", require("./routes/getUserData.routes.js"));
 connectDB().then(() => {
     console.log("Connected to MongoDB");
     app.listen(process.env.PORT, () => {
-        console.log("Server is successfully listening on port 8000...");
+        console.log("Server is successfully listening on port", PORT);
     });
 }
 ).catch((err) => {
