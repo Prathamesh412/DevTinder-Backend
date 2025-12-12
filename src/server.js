@@ -91,9 +91,9 @@ app.use(async (req, res, next) => {
 //   }
 // });
 
-app.use("/user", require("./routes/user.routes.js"));
-app.use("/request", require("./routes/connection.routes.js"));
-app.use("/getUser", require("./routes/getUserData.routes.js"));
+app.use("/api/user", require("./routes/user.routes.js"));
+app.use("/api/request", require("./routes/connection.routes.js"));
+app.use("/api/getUser", require("./routes/getUserData.routes.js"));
 
 connectDB().then(() => {
     console.log("Connected to MongoDB");
